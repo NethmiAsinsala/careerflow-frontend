@@ -1,6 +1,5 @@
 import { Component, Injectable, inject, input, signal } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
-import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 const paths: Record<string, string> = {
   dashboard: "M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z",
@@ -76,14 +75,26 @@ export class Appearance {
 @Component({
   selector: "cf-theme-toggle",
   standalone: true,
-  imports: [Icon, MatSlideToggleModule],
-  template: `<div class="theme-control">
-    <cf-icon [name]="appearance.dark() ? 'moon' : 'sun'" /><mat-slide-toggle
-      [checked]="appearance.dark()"
-      (change)="appearance.set($event.checked)"
-      aria-label="Dark mode"
-      >{{ appearance.dark() ? "Dark" : "Light" }}</mat-slide-toggle
+  imports: [Icon],
+  template: `<div class="theme-control" role="group" aria-label="Color theme">
+    <button
+      type="button"
+      class="theme-option"
+      [class.selected]="!appearance.dark()"
+      [attr.aria-pressed]="!appearance.dark()"
+      (click)="appearance.set(false)"
     >
+      <cf-icon name="sun" /><span>Light</span>
+    </button>
+    <button
+      type="button"
+      class="theme-option"
+      [class.selected]="appearance.dark()"
+      [attr.aria-pressed]="appearance.dark()"
+      (click)="appearance.set(true)"
+    >
+      <cf-icon name="moon" /><span>Dark</span>
+    </button>
   </div>`,
 })
 export class ThemeToggle {

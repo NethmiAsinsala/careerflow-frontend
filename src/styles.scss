@@ -746,11 +746,55 @@ cf-icon svg {
   box-shadow: inset 3px 0 var(--cf-accent);
 }
 .theme-control {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--cf-border);
+  border-radius: 999px;
+  background: var(--cf-surface);
   white-space: nowrap;
 }
+.theme-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cf-muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.theme-option cf-icon {
+  width: 16px;
+  height: 16px;
+}
+.theme-option:hover {
+  background: var(--cf-hover);
+  color: var(--cf-text);
+}
+.theme-option.selected {
+  background: var(--cf-tint);
+  color: var(--cf-text);
+}
+.theme-option:focus-visible {
+  outline: 2px solid var(--cf-accent);
+  outline-offset: 2px;
+}
+html.dark-theme .auth-story {
+  background: #292824;
+}
+html.dark-theme .theme-option.selected {
+  background: #3b3832;
+}
+
 .topbar-actions {
   min-width: 0;
   flex-wrap: wrap;
