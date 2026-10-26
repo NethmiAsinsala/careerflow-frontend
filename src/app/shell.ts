@@ -10,6 +10,7 @@ import { Icon, ThemeToggle } from "./appearance";
 import { MatButtonModule } from "@angular/material/button";
 @Component({
   standalone: true,
+  host: { class: "workspace-shell" },
   imports: [
     RouterLink,
     RouterLinkActive,

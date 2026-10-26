@@ -200,6 +200,14 @@ export class JobsPage {
                 <p>Skills to develop: {{ m.missingSkills.join(", ") }}</p>
               }
             }
+            <p>
+              <a
+                mat-stroked-button
+                routerLink="/resume"
+                [queryParams]="{ jobId: j.id }"
+                >Compare my CV with this job</a
+              >
+            </p>
             <form [formGroup]="form" (ngSubmit)="apply()">
               <mat-form-field appearance="outline"
                 ><mat-label>Cover letter (optional)</mat-label

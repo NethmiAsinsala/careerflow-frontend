@@ -249,3 +249,16 @@ export const authGuard: CanActivateFn = async (route, state) => {
     ? true
     : r.createUrlTree(["/dashboard"]);
 };
+
+export interface JobAnalysis {
+  analysis: Analysis;
+  comparison: {
+    jobId: number;
+    jobTitle: string;
+    percentage: number | null;
+    matchedSkills: string[];
+    missingSkills: string[];
+    requiredCount: number;
+    explanation: string;
+  };
+}

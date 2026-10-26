@@ -864,3 +864,24 @@ html.dark-theme .theme-option.selected {
     flex-basis: 100%;
   }
 }
+
+/* Routed Angular hosts must be block boxes: inline hosts can leave anonymous
+   line-box space after the flex workspace and constrain sticky positioning. */
+app-root,
+.workspace-shell,
+main#main > router-outlet + * {
+  display: block;
+}
+.workspace {
+  align-items: flex-start;
+}
+.sidebar {
+  align-self: flex-start;
+}
+.workspace-main {
+  min-height: 0;
+}
+main#main {
+  margin-block: 0;
+  margin-inline: auto;
+}
